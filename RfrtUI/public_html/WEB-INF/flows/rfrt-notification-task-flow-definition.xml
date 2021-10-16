@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="rfrt-notification-task-flow-definition">
+    <default-activity>setNVC_wfDocumentId</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__4">
+      <name>NVC_wfDocumentId</name>
+    </input-parameter-definition>
+    <managed-bean id="__3">
+      <managed-bean-name>rfrtNotificationBB</managed-bean-name>
+      <managed-bean-class>pqt.dss.rfrt.view.backing.rfrtNotificationBB</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+    </managed-bean>
+    <method-call id="setNVC_wfDocumentId">
+      <method>#{bindings.setNVC_wfDocumentId.execute}</method>
+      <outcome>
+        <fixed-outcome>setNVC_wfDocumentId</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="rfrtNotification">
+      <page>/fragments/rfrt/rfrtNotification.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>setNVC_wfDocumentId</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>setNVC_wfDocumentId</from-outcome>
+        <to-activity-id>rfrtNotification</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.0.31" id="DataBindings"
+             SeparateXMLFiles="false" Package="pqt.dss.rfrt.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/flows/dss-rfrt-task-flow-definition.xml#dss-rfrt-task-flow-definition@CreateInsert"
+          usageId="pqt_dss_rfrt_view_dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_CreateInsertPageDef"/>
+    <page path="/WEB-INF/flows/dss-rfrt-task-flow-definition.xml#dss-rfrt-task-flow-definition@Rollback"
+          usageId="pqt_dss_rfrt_view_dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_RollbackPageDef"/>
+    <page path="/WEB-INF/flows/dss-rfrt-task-flow-definition.xml#dss-rfrt-task-flow-definition@DeleteCommit"
+          usageId="pqt_dss_rfrt_view_dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_DeleteCommitPageDef"/>
+    <page path="/WEB-INF/flows/dss-rfrt-task-flow-definition.xml#dss-rfrt-task-flow-definition@Delete"
+          usageId="pqt_dss_rfrt_view_dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_DeletePageDef"/>
+    <page path="/fragments/rfrt/rfrtQuery.jsff" usageId="pqt_dss_rfrt_view_rfrtQueryPageDef"/>
+    <page path="/pages/rfrt/rfrt.jsf" usageId="pqt_dss_rfrt_view_rfrtPageDef"/>
+    <page path="/fragments/rfrt/rfrtCreateUpdate.jsff" usageId="pqt_dss_rfrt_view_rfrtCreateUpdatePageDef"/>
+    <page path="/fragments/rfrt/rfrtDetail.jsff" usageId="pqt_dss_rfrt_view_rfrtDetailPageDef"/>
+    <page path="/fragments/rfrt/rfrtNotification.jsff" usageId="pqt_dss_rfrt_view_rfrtNotificationPageDef"/>
+    <page path="/WEB-INF/flows/rfrt-notification-task-flow-definition.xml#rfrt-notification-task-flow-definition@setNVC_wfDocumentId"
+          usageId="pqt_dss_rfrt_view_rfrt_notification_task_flow_definition_rfrt_notification_task_flow_definition_setNVC_wfDocumentIdPageDef"/>
+    <page path="/pages/rfrt/rfrtNotificationPage.jsf" usageId="pqt_dss_rfrt_view_rfrtNotificationPagePageDef"/>
+    <page path="/WEB-INF/flows/dss-rfrt-task-flow-definition.xml#dss-rfrt-task-flow-definition@rfrtSearchUser"
+          usageId="pqt_dss_rfrt_view_dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_rfrtSearchUserPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="pqt_dss_rfrt_view_dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_CreateInsertPageDef"
+          path="flows.dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_CreateInsertPageDef"/>
+    <page id="pqt_dss_rfrt_view_dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_RollbackPageDef"
+          path="flows.dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_RollbackPageDef"/>
+    <page id="pqt_dss_rfrt_view_dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_DeleteCommitPageDef"
+          path="flows.dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_DeleteCommitPageDef"/>
+    <page id="pqt_dss_rfrt_view_dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_DeletePageDef"
+          path="flows.dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_DeletePageDef"/>
+    <page id="pqt_dss_rfrt_view_rfrtQueryPageDef" path="fragments.rfrt.rfrtQueryPageDef"/>
+    <page id="pqt_dss_rfrt_view_rfrtPageDef" path="pages.rfrt.rfrtPageDef"/>
+    <page id="pqt_dss_rfrt_view_rfrtCreateUpdatePageDef" path="fragments.rfrt.rfrtCreateUpdatePageDef"/>
+    <page id="pqt_dss_rfrt_view_rfrtDetailPageDef" path="fragments.rfrt.rfrtDetailPageDef"/>
+    <page id="pqt_dss_rfrt_view_rfrtNotificationPageDef" path="fragments.rfrt.rfrtNotificationPageDef"/>
+    <page id="pqt_dss_rfrt_view_rfrt_notification_task_flow_definition_rfrt_notification_task_flow_definition_setNVC_wfDocumentIdPageDef"
+          path="flows.rfrt_notification_task_flow_definition_rfrt_notification_task_flow_definition_setNVC_wfDocumentIdPageDef"/>
+    <page id="pqt_dss_rfrt_view_rfrtNotificationPagePageDef" path="pages.rfrt.rfrtNotificationPagePageDef"/>
+    <page id="pqt_dss_rfrt_view_dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_rfrtSearchUserPageDef"
+          path="flows.dss_rfrt_task_flow_definition_dss_rfrt_task_flow_definition_rfrtSearchUserPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="RfrtAMDataControl" Package="pqt.dss.rfrt.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="RfrtAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

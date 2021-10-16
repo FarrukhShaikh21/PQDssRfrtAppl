@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout layout="vertical" id="pgl2">
+        <af:panelHeader text="Search page" id="ph1">
+          <af:query id="qryId1" headerText="Search" disclosed="true"
+                    value="#{bindings.DssReqResigTermHeaderViewCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.DssReqResigTermHeaderViewCriteriaQuery.queryModel}"
+                    queryListener="#{bindings.DssReqResigTermHeaderViewCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.DssReqResigTermHeaderViewCriteriaQuery.processQueryOperation}"
+                    resultComponentId="::pc1:resId1" saveQueryMode="hidden" modeChangeVisible="false"/>
+        </af:panelHeader>
+        <af:panelCollection id="pc1" styleClass="AFStretchWidth" featuresOff="detach viewMenu">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t1">
+              <af:group id="g1">
+                <af:button text="Create New" id="b1" action="goCreate"/>
+              </af:group>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.DssReqResigTermHeaderView1.collectionModel}" var="row"
+                    rows="#{bindings.DssReqResigTermHeaderView1.rangeSize}"
+                    emptyText="#{bindings.DssReqResigTermHeaderView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.DssReqResigTermHeaderView1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.DssReqResigTermHeaderView1.collectionModel.makeCurrent}"
+                    rowSelection="single" fetchSize="#{bindings.DssReqResigTermHeaderView1.rangeSize}" id="resId1">
+            <af:column headerText="#{bindings.DssReqResigTermHeaderView1.hints.RfrtHeaderIdPk.label}" id="c8"
+                       rendered="false">
+              <af:inputText value="#{row.bindings.RfrtHeaderIdPk.inputValue}"
+                            label="#{bindings.DssReqResigTermHeaderView1.hints.RfrtHeaderIdPk.label}"
+                            required="#{bindings.DssReqResigTermHeaderView1.hints.RfrtHeaderIdPk.mandatory}"
+                            columns="#{bindings.DssReqResigTermHeaderView1.hints.RfrtHeaderIdPk.displayWidth}"
+                            maximumLength="#{bindings.DssReqResigTermHeaderView1.hints.RfrtHeaderIdPk.precision}"
+                            shortDesc="#{bindings.DssReqResigTermHeaderView1.hints.RfrtHeaderIdPk.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.RfrtHeaderIdPk.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.DssReqResigTermHeaderView1.hints.RfrtHeaderIdPk.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.DssReqResigTermHeaderView1.hints.RfrtDocNo.label}" id="c6" width="200"
+                       align="center">
+              <af:outputText value="#{row.RfrtDocNo}"
+                             shortDesc="#{bindings.DssReqResigTermHeaderView1.hints.RfrtDocNo.tooltip}" id="ot6"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssReqResigTermHeaderView1.hints.AgentName.label}" id="resId1c6"
+                       width="200" align="center">
+              <af:outputText value="#{row.AgentName}"
+                             shortDesc="#{bindings.DssReqResigTermHeaderView1.hints.AgentName.tooltip}" id="ot4"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssReqResigTermHeaderView1.hints.AgentCode.label}" id="resId1c7"
+                       align="center">
+              <af:outputText value="#{row.AgentCode}"
+                             shortDesc="#{bindings.DssReqResigTermHeaderView1.hints.AgentCode.tooltip}" id="ot5"/>
+            </af:column>
+            <af:column headerText="#{bindings.DssReqResigTermHeaderView1.hints.PersonType.label}" id="c1"
+                       align="center">
+              <af:selectOneChoice value="#{row.bindings.PersonType.inputValue}" label="#{row.bindings.PersonType.label}"
+                                  required="#{bindings.DssReqResigTermHeaderView1.hints.PersonType.mandatory}"
+                                  shortDesc="#{bindings.DssReqResigTermHeaderView1.hints.PersonType.tooltip}" id="soc1"
+                                  disabled="true">
+                <f:selectItems value="#{row.bindings.PersonType.items}" id="si1"/>
+                <f:validator binding="#{row.bindings.PersonType.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.DssReqResigTermHeaderView1.hints.RequestType.label}" id="c2"
+                       align="center">
+              <af:selectOneChoice value="#{row.bindings.RequestType.inputValue}"
+                                  label="#{row.bindings.RequestType.label}"
+                                  required="#{bindings.DssReqResigTermHeaderView1.hints.RequestType.mandatory}"
+                                  shortDesc="#{bindings.DssReqResigTermHeaderView1.hints.RequestType.tooltip}" id="soc2"
+                                  disabled="true">
+                <f:selectItems value="#{row.bindings.RequestType.items}" id="si2"/>
+                <f:validator binding="#{row.bindings.RequestType.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.DssReqResigTermHeaderView1.hints.WorkflowStatus.label}" id="c9"
+                       align="center">
+              <af:outputText value="#{row.WorkflowStatus}"
+                             shortDesc="#{bindings.DssReqResigTermHeaderView1.hints.WorkflowStatus.tooltip}" id="ot1"/>
+            </af:column>
+            <af:column id="c3" headerText="Detail" align="center" width="50">
+              <af:link id="l1" icon="/images/detailsicon_enabled.gif" action="goDetail"/>
+            </af:column>
+            <af:column id="c4" headerText="Update" align="center" width="50">
+              <af:link id="l2" icon="/images/updateicon_enabled.gif" action="goUpdate"
+                       disabled="#{row.WorkflowStatus eq 'APPROVED' or row.WorkflowStatus eq 'INPROCESS'}"/>
+            </af:column>
+            <af:column id="c5" headerText="Delete" align="center" width="50">
+              <af:link id="l3" icon="/images/deleteicon_enabled.gif" action="goDelete"
+                       disabled="#{row.WorkflowStatus eq 'APPROVED' or row.WorkflowStatus eq 'INPROCESS'}"/>
+            </af:column>
+            <af:column id="c7" align="center" headerText="Report" width="50">
+              <af:link id="l4" icon="/images/printLogo.gif"
+                       actionListener="#{CallReport.callDSSReports('DSS_RFRT_REPORT', (row.bindings.RfrtHeaderIdPk.inputValue))}"/>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</ui:composition>

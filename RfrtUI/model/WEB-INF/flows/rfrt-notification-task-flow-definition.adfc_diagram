@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">setNVC_wfDocumentId</property>
+      <property
+         name="x">429.3584</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>setNVC_wfDocumentId&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">147.43652</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">rfrtNotification</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">753.01074</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>rfrtNotification&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">140.09766</property>
+      <property
+         name="page">/fragments/rfrt/rfrtNotification.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall2"
+      to="View3">
+      <property
+         name="fromOutcome">setNVC_wfDocumentId</property>
+      <property
+         name="sdm:polyPoints">R50,470.3584,147.08594,712.01074,139.74707,L50</property>
+   </ControlFlowCase>
+</SDM>

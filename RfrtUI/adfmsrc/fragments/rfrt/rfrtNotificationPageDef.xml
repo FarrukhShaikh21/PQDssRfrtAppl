@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="rfrtNotificationPageDef"
+                Package="fragments.rfrt">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DssReqResigTermHeaderView1" RangeSize="25" DataControl="RfrtAMDataControl"
+              id="DssReqResigTermHeaderView1Iterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="DssReqResigTermHeaderView1Iterator" StaticList="false" Uses="LOV_PersonType" id="PersonType"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="AgentCode">
+      <AttrNames>
+        <Item Value="AgentCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="Designation">
+      <AttrNames>
+        <Item Value="Designation"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="Region">
+      <AttrNames>
+        <Item Value="Region"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="DateOfJoing">
+      <AttrNames>
+        <Item Value="DateOfJoing"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="RankDate">
+      <AttrNames>
+        <Item Value="RankDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="Portfolio">
+      <AttrNames>
+        <Item Value="Portfolio"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="MonthSalaryDrawn">
+      <AttrNames>
+        <Item Value="MonthSalaryDrawn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="RequestReason">
+      <AttrNames>
+        <Item Value="RequestReason"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DssReqResigTermHeaderView1Iterator" StaticList="false" Uses="LOV_RequestType" id="RequestType"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="FileContentType">
+      <AttrNames>
+        <Item Value="FileContentType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="ResignationLetter">
+      <AttrNames>
+        <Item Value="ResignationLetter"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="RfrtDocNo">
+      <AttrNames>
+        <Item Value="RfrtDocNo"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="DssReqResigTermHeaderView1Iterator" StaticList="false" Uses="LOV_AgentStipend"
+                  id="AgentStipend"/>
+    <listOfValues IterBinding="DssReqResigTermHeaderView1Iterator" StaticList="false" Uses="LOV_BranchName"
+                  id="BranchName"/>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="QuarterBussPol">
+      <AttrNames>
+        <Item Value="QuarterBussPol"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="QuarterBuss">
+      <AttrNames>
+        <Item Value="QuarterBuss"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="HalfyearBussPol">
+      <AttrNames>
+        <Item Value="HalfyearBussPol"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="HalfyearBuss">
+      <AttrNames>
+        <Item Value="HalfyearBuss"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="YearlyBussPol">
+      <AttrNames>
+        <Item Value="YearlyBussPol"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="YearlyBuss">
+      <AttrNames>
+        <Item Value="YearlyBuss"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="ActiveConsultant">
+      <AttrNames>
+        <Item Value="ActiveConsultant"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="ActiveManager">
+      <AttrNames>
+        <Item Value="ActiveManager"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="DssReqResigTermHeaderView1Iterator" StaticList="false" Uses="LOV_PlanTransferDocNo"
+                  id="PlanTransferDocNo"/>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="AgentName">
+      <AttrNames>
+        <Item Value="AgentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssReqResigTermHeaderView1Iterator" id="ReportingManagerName">
+      <AttrNames>
+        <Item Value="ReportingManagerName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

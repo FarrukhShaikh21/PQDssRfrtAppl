@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="rfrtQueryPageDef"
+                Package="fragments.rfrt">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DssReqResigTermHeaderView1" RangeSize="25" DataControl="RfrtAMDataControl"
+              id="DssReqResigTermHeaderView1Iterator"/>
+    <searchRegion Criteria="DssReqResigTermHeaderViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DssReqResigTermHeaderView1Iterator" id="DssReqResigTermHeaderViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DssReqResigTermHeaderView1Iterator" id="DssReqResigTermHeaderView1">
+      <nodeDefinition DefName="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView" Name="DssReqResigTermHeaderView10">
+        <AttrNames>
+          <Item Value="RfrtHeaderIdPk"/>
+          <Item Value="RfrtDocNo"/>
+          <Item Value="AgentName"/>
+          <Item Value="AgentCode"/>
+          <Item Value="PersonType"/>
+          <Item Value="RequestType"/>
+          <Item Value="WorkflowStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
