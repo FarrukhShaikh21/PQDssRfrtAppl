@@ -1,0 +1,1136 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssReqResigTermHeaderView"
+  Version="12.2.1.3.15"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  ComponentClass="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderViewImpl"
+  RowClass="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderViewRowImpl"
+  ComponentInterface="pqt.dss.rfrt.model.vo.common.DssReqResigTermHeaderView"
+  ClientProxyName="pqt.dss.rfrt.model.vo.client.DssReqResigTermHeaderViewClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="VC_Current_Qtr"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Number">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="NVC_wfDocumentId"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Number"/>
+  <Variable
+    Name="VC_Doc_No"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="ResigTerminationPopList2"
+    ViewObjectName="pqt.dss.rfrt.model.popUp.ResigTerminationPopList"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AgentManagPopList1"
+    ViewObjectName="pqt.dss.rfrt.model.popUp.AgentManagPopList"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="StipendPopList1"
+    ViewObjectName="pqt.dss.rfrt.model.popUp.StipendPopList"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UserBranchDtlLovVo1"
+    ViewObjectName="pqt.dss.rfrt.model.lov.UserBranchDtlLovVo"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="UserBranchDtlLovVoCriteria"
+      FullName="pqt.dss.rfrt.model.lov.UserBranchDtlLovVo.UserBranchDtlLovVoCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="VC_User_IdFk">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[UserIdFk]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="AgentDetailLovVo1"
+    ViewObjectName="pqt.dss.rfrt.model.lov.AgentDetailLovVo"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="AgentDetailLovVoCriteria"
+      FullName="pqt.dss.rfrt.model.lov.AgentDetailLovVo.AgentDetailLovVoCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="VC_Branch_Code">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[BranchCodeFk]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_RequestType"
+    ListVOName="ResigTerminationPopList2"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RequestType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Descr"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PersonType"
+    ListVOName="AgentManagPopList1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PersonType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PersonType"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_AgentStipend"
+    ListVOName="StipendPopList1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AgentStipend"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Code"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="StipendType"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_BranchName"
+    ListVOName="UserBranchDtlLovVo1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="BranchName"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BranchCodeFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="VBranchName"/>
+      <Item Value="VBranchCode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="VBranchCode"/>
+      <Item Value="VBranchName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PlanTransferDocNo"
+    ListVOName="AgentDetailLovVo1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0"
+    ComboRowCountHint="10">
+    <AttrArray Name="AttrNames">
+      <Item Value="PlanTransferDocNo"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="AgentName"/>
+      <Item Value="AgentCode"/>
+      <Item Value="Designation"/>
+      <Item Value="ReportingManagerName"/>
+      <Item Value="Region"/>
+      <Item Value="DateOfJoing"/>
+      <Item Value="RankDate"/>
+      <Item Value="AgentNoFk"/>
+      <Item Value="Portfolio"/>
+      <Item Value="QuarterBuss"/>
+      <Item Value="QuarterBussPol"/>
+      <Item Value="HalfyearBuss"/>
+      <Item Value="HalfyearBussPol"/>
+      <Item Value="YearlyBuss"/>
+      <Item Value="YearlyBussPol"/>
+      <Item Value="ActiveConsultant"/>
+      <Item Value="ActiveManager"/>
+      <Item Value="PlanTransferHdrIdFk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="PtrfDocNo"/>
+      <Item Value="AgentName"/>
+      <Item Value="AgentCode"/>
+      <Item Value="AgentRank"/>
+      <Item Value="MgrAgentName"/>
+      <Item Value="Region"/>
+      <Item Value="DateOfJoining"/>
+      <Item Value="LastRankDate"/>
+      <Item Value="NAgentNo"/>
+      <Item Value="Portfolio"/>
+      <Item Value="NCqBus"/>
+      <Item Value="NCqBusPol"/>
+      <Item Value="NHyBus"/>
+      <Item Value="NHyBusPol"/>
+      <Item Value="NYrBus"/>
+      <Item Value="NYrBusPol"/>
+      <Item Value="ActiveConsultant"/>
+      <Item Value="ActiveManagers"/>
+      <Item Value="TrHeaderIdPk"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PtrfDocNo"/>
+      <Item Value="AgentCode"/>
+      <Item Value="AgentName"/>
+      <Item Value="AgentRank"/>
+      <Item Value="MgrAgentName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="AgentDetailLovVoCriteria"/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT DSSREQRESIGTERMHEADER.ACTIVE_CONSULTANTS,                             
+       DSSREQRESIGTERMHEADER.AGENT_NO_FK,                             
+       DSSREQRESIGTERMHEADER.BRANCH_CODE_FK,                             
+       DSSREQRESIGTERMHEADER.BRANCH_NOTIF_ID_FK,                             
+       DSSREQRESIGTERMHEADER.BRANCH_STATUS,                             
+       DSSREQRESIGTERMHEADER.CURRENT_QTR,                             
+       DSSREQRESIGTERMHEADER.DSS_NOTIF_ID_FK,                             
+       DSSREQRESIGTERMHEADER.DSS_STATUS,                             
+       DSSREQRESIGTERMHEADER.ENTER_DATE,                             
+       DSSREQRESIGTERMHEADER.JOINING_DATE,                             
+       DSSREQRESIGTERMHEADER.LAST_RANK_DATE,                             
+       DSSREQRESIGTERMHEADER.LAST_UPDATED_BY,                             
+       DSSREQRESIGTERMHEADER.LAST_UPDATED_DATE,                             
+       DSSREQRESIGTERMHEADER.MANAGER_ID_FK,                             
+       DSSREQRESIGTERMHEADER.MONTH_SALARY_DRAWN,                             
+       DSSREQRESIGTERMHEADER.PERSON_TYPE,                             
+       DSSREQRESIGTERMHEADER.RANK_CODE_FK,                             
+       DSSREQRESIGTERMHEADER.REGION_CODE_FK,                             
+       DSSREQRESIGTERMHEADER.REMARKS,                             
+       DSSREQRESIGTERMHEADER.REQUEST_REASON,                             
+       DSSREQRESIGTERMHEADER.REQUEST_TYPE,                             
+       DSSREQRESIGTERMHEADER.RESIGNATION_FILE,                             
+       DSSREQRESIGTERMHEADER.RESIGNATION_LETTER,                             
+       DSSREQRESIGTERMHEADER.RFRT_HEADER_ID_PK,                             
+       DSSREQRESIGTERMHEADER.USER_ID_FK,                             
+       DSSREQRESIGTERMHEADER.YEAR_TO_DATE,                
+       DSSREQRESIGTERMHEADER.RFRT_DOC_NO,               
+       DSSREQRESIGTERMHEADER.AGENT_STIPEND,      
+       DSSREQRESIGTERMHEADER.WORKFLOW_NOTIFICATION_ID,      
+       DSSREQRESIGTERMHEADER.WORKFLOW_STATUS,    
+       (SELECT P.PTRF_DOC_NO      
+          FROM DSS_PLAN_TRANSFER_HEADER P      
+         WHERE P.TR_HEADER_ID_PK =      
+               DSSREQRESIGTERMHEADER.PLAN_TRANSFER_HDR_ID_FK) Plan_Transfer_Doc_No,   
+             (SELECT AG.AGENT_NAME                                            
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) AGENT_NAME,                                            
+       (SELECT AG.AGENT_CODE                                            
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) AGENT_CODE,              
+         (SELECT AG.N_CQ_BUS_POL                               
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) QUARTER_BUSS_POL,          
+         (SELECT AG.N_CQ_BUS                               
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) QUARTER_BUSS,          
+         (SELECT AG.N_HY_BUS_POL                               
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) HALFYEAR_BUSS_POL,          
+          (SELECT AG.N_HY_BUS                               
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) HALFYEAR_BUSS,          
+         (SELECT AG.N_YR_BUS_POL                               
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) YEARLY_BUSS_POL,          
+         (SELECT AG.N_YR_BUS                               
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) YEARLY_BUSS,          
+       (SELECT AG.AGENT_RANK                                            
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) DESIGNATION,                                            
+       (SELECT AG.MGR_AGENT_NAME                                            
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) REPORTING_MANAGER_NAME,                                            
+       (SELECT TBR.V_BRANCH_NAME                               
+          FROM VU_DSS_ST_BRANCH TBR                               
+         WHERE TBR.V_BRANCH_CODE = DSSREQRESIGTERMHEADER.BRANCH_CODE_FK) BRANCH_NAME,                                            
+       (SELECT AG.REGION                                            
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) REGION,                                            
+       (SELECT AG.DATE_OF_JOINING                                            
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) DATE_OF_JOING,                                            
+       (SELECT AG.LAST_RANK_DATE                                            
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) RANK_DATE,                    
+       (SELECT AG.PORTFOLIO                                            
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) PORTFOLIO,                  
+         DSSREQRESIGTERMHEADER.FILE_CONTENT_TYPE,        
+          (SELECT AG.ACTIVE_CONSULTANT                                            
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) ACTIVE_CONSULTANT,        
+          (SELECT AG.ACTIVE_MANAGERS                                            
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) ACTIVE_MANAGER,     
+         DSSREQRESIGTERMHEADER.PLAN_TRANSFER_HDR_ID_FK    
+FROM  DSS_REQ_RESIG_TERM_HEADER DSSREQRESIGTERMHEADER]]></SQLQuery>
+  <EntityUsage
+    Name="DssReqResigTermHeader"
+    Entity="pqt.dss.rfrt.model.eo.DssReqResigTermHeader"/>
+  <ViewAttribute
+    Name="ActiveConsultants"
+    PrecisionRule="true"
+    EntityAttrName="ActiveConsultants"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="ACTIVE_CONSULTANTS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.ActiveConsultants_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AgentNoFk"
+    PrecisionRule="true"
+    EntityAttrName="AgentNoFk"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="AGENT_NO_FK"/>
+  <ViewAttribute
+    Name="BranchCodeFk"
+    PrecisionRule="true"
+    EntityAttrName="BranchCodeFk"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="BRANCH_CODE_FK"/>
+  <ViewAttribute
+    Name="BranchNotifIdFk"
+    PrecisionRule="true"
+    EntityAttrName="BranchNotifIdFk"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="BRANCH_NOTIF_ID_FK">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BranchStatus"
+    PrecisionRule="true"
+    EntityAttrName="BranchStatus"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="BRANCH_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.BranchStatus_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentQtr"
+    PrecisionRule="true"
+    EntityAttrName="CurrentQtr"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="CURRENT_QTR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.CurrentQtr_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DssNotifIdFk"
+    PrecisionRule="true"
+    EntityAttrName="DssNotifIdFk"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="DSS_NOTIF_ID_FK"/>
+  <ViewAttribute
+    Name="DssStatus"
+    PrecisionRule="true"
+    EntityAttrName="DssStatus"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="DSS_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.DssStatus_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EnterDate"
+    PrecisionRule="true"
+    EntityAttrName="EnterDate"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="ENTER_DATE"/>
+  <ViewAttribute
+    Name="JoiningDate"
+    PrecisionRule="true"
+    EntityAttrName="JoiningDate"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="JOINING_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.JoiningDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.JoiningDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.JoiningDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastRankDate"
+    PrecisionRule="true"
+    EntityAttrName="LastRankDate"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="LAST_RANK_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.LastRankDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.LastRankDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="ManagerIdFk"
+    PrecisionRule="true"
+    EntityAttrName="ManagerIdFk"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="MANAGER_ID_FK"/>
+  <ViewAttribute
+    Name="MonthSalaryDrawn"
+    PrecisionRule="true"
+    EntityAttrName="MonthSalaryDrawn"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="MONTH_SALARY_DRAWN">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.MonthSalaryDrawn_LABEL"/>
+        <DISPLAYWIDTH
+          Value="43"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PersonType"
+    PrecisionRule="true"
+    EntityAttrName="PersonType"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="PERSON_TYPE"
+    LOVName="LOV_PersonType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.PersonType_LABEL"/>
+        <DISPLAYWIDTH
+          Value="39"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RankCodeFk"
+    PrecisionRule="true"
+    EntityAttrName="RankCodeFk"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="RANK_CODE_FK"/>
+  <ViewAttribute
+    Name="RegionCodeFk"
+    PrecisionRule="true"
+    EntityAttrName="RegionCodeFk"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="REGION_CODE_FK"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="REMARKS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.Remarks_LABEL"/>
+        <DISPLAYWIDTH
+          Value="60"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RequestReason"
+    PrecisionRule="true"
+    EntityAttrName="RequestReason"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="REQUEST_REASON">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.RequestReason_LABEL"/>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RequestType"
+    PrecisionRule="true"
+    EntityAttrName="RequestType"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="REQUEST_TYPE"
+    LOVName="LOV_RequestType">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.RequestType_LABEL"/>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ResignationFile"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="ResignationFile"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="RESIGNATION_FILE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.ResignationFile_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ResignationLetter"
+    PrecisionRule="true"
+    EntityAttrName="ResignationLetter"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="RESIGNATION_LETTER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.ResignationLetter_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RfrtHeaderIdPk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RfrtHeaderIdPk"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="RFRT_HEADER_ID_PK"/>
+  <ViewAttribute
+    Name="UserIdFk"
+    PrecisionRule="true"
+    EntityAttrName="UserIdFk"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="USER_ID_FK"/>
+  <ViewAttribute
+    Name="YearToDate"
+    PrecisionRule="true"
+    EntityAttrName="YearToDate"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="YEAR_TO_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.YearToDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="37"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.YearToDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.YearToDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RfrtDocNo"
+    PrecisionRule="true"
+    EntityAttrName="RfrtDocNo"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="RFRT_DOC_NO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.RfrtDocNo_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AgentStipend"
+    PrecisionRule="true"
+    EntityAttrName="AgentStipend"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="AGENT_STIPEND"
+    LOVName="LOV_AgentStipend">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.AgentStipend_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WorkflowNotificationId"
+    PrecisionRule="true"
+    EntityAttrName="WorkflowNotificationId"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="WORKFLOW_NOTIFICATION_ID"/>
+  <ViewAttribute
+    Name="WorkflowStatus"
+    PrecisionRule="true"
+    EntityAttrName="WorkflowStatus"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="WORKFLOW_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.WorkflowStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PlanTransferDocNo"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PLAN_TRANSFER_DOC_NO"
+    Expression="PLAN_TRANSFER_DOC_NO"
+    SQLType="VARCHAR"
+    LOVName="LOV_PlanTransferDocNo">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.PlanTransferDocNo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AgentName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="AGENT_NAME"
+    Expression="AGENT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.AgentName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="37"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AgentCode"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="AGENT_CODE"
+    Expression="AGENT_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.AgentCode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="QuarterBussPol"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="QUARTER_BUSS_POL"
+    Expression="QUARTER_BUSS_POL"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.QuarterBussPol_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="QuarterBuss"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="QUARTER_BUSS"
+    Expression="QUARTER_BUSS"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.QuarterBuss_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="HalfyearBussPol"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="HALFYEAR_BUSS_POL"
+    Expression="HALFYEAR_BUSS_POL"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.HalfyearBussPol_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="HalfyearBuss"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="HALFYEAR_BUSS"
+    Expression="HALFYEAR_BUSS"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.HalfyearBuss_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="YearlyBussPol"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="YEARLY_BUSS_POL"
+    Expression="YEARLY_BUSS_POL"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.YearlyBussPol_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="YearlyBuss"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="YEARLY_BUSS"
+    Expression="YEARLY_BUSS"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.YearlyBuss_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Designation"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DESIGNATION"
+    Expression="DESIGNATION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.Designation_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ReportingManagerName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="REPORTING_MANAGER_NAME"
+    Expression="REPORTING_MANAGER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.ReportingManagerName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BranchName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="500"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BRANCH_NAME"
+    Expression="BRANCH_NAME"
+    SQLType="VARCHAR"
+    LOVName="LOV_BranchName">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.BranchName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="37"/>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Region"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="REGION"
+    Expression="REGION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.Region_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DateOfJoing"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="DATE_OF_JOING"
+    Expression="DATE_OF_JOING"
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.DateOfJoing_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.DateOfJoing_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.DateOfJoing_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RankDate"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    AliasName="RANK_DATE"
+    Expression="RANK_DATE"
+    SQLType="DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.RankDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+        <FMT_FORMAT
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.RankDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.RankDate_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Portfolio"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="PORTFOLIO"
+    Expression="PORTFOLIO"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.Portfolio_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FileContentType"
+    PrecisionRule="true"
+    AliasName="FILE_CONTENT_TYPE"
+    EntityAttrName="FileContentType"
+    EntityUsage="DssReqResigTermHeader">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ActiveConsultant"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ACTIVE_CONSULTANT"
+    Expression="ACTIVE_CONSULTANT"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.ActiveConsultant_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ActiveManager"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ACTIVE_MANAGER"
+    Expression="ACTIVE_MANAGER"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.ActiveManager_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PlanTransferHdrIdFk"
+    PrecisionRule="true"
+    EntityAttrName="PlanTransferHdrIdFk"
+    EntityUsage="DssReqResigTermHeader"
+    AliasName="PLAN_TRANSFER_HDR_ID_FK"/>
+  <ViewCriteria
+    Name="DssReqResigTermHeaderViewCriteria"
+    ViewObjectName="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="DssReqResigTermHeaderViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CurrentQtr"
+        ViewAttribute="CurrentQtr"
+        Operator="="
+        Conjunction="AND"
+        Value=":VC_Current_Qtr"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="RfrtDocNo"
+        ViewAttribute="RfrtDocNo"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":VC_Doc_No"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="NotificationViewCriteria"
+    ViewObjectName="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="DssReqResigTermHeaderViewCriteria1_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="RfrtHeaderIdPk"
+        ViewAttribute="RfrtHeaderIdPk"
+        Operator="="
+        Conjunction="AND"
+        Value=":NVC_wfDocumentId"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewLinkAccessor
+    Name="DssReqResigTermLineView"
+    ViewLink="pqt.dss.rfrt.model.vo.RfrtHeaderFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="setNVC_wfDocumentId"
+      MethodName="setNVC_wfDocumentId">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="value"
+        Type="oracle.jbo.domain.Number"/>
+    </Method>
+    <Method
+      Name="rfrtSearchUser"
+      MethodName="rfrtSearchUser">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+    </Method>
+  </ClientInterface>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="pqt.dss.rfrt.model.RfrtModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

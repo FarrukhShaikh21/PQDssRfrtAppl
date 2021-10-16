@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RfrtHeaderFkAssoc"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="DssReqResigTermHeader"
+    Cardinality="1"
+    Source="true"
+    Owner="pqt.dss.rfrt.model.eo.DssReqResigTermHeader">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="DssReqResigTermHeader"/>
+      <Attr Name="_foreignKey" Value="pqt.dss.rfrt.model.eo.DssReqResigTermHeader.RfrtHeaderPk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.rfrt.model.eo.DssReqResigTermHeader.RfrtHeaderIdPk"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="DssReqResigTermLine"
+    Cardinality="-1"
+    Owner="pqt.dss.rfrt.model.eo.DssReqResigTermLine">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="DssReqResigTermLine"/>
+      <Attr Name="_foreignKey" Value="pqt.dss.rfrt.model.eo.DssReqResigTermLine.RfrtHeaderFk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="pqt.dss.rfrt.model.eo.DssReqResigTermLine.RfrtHeaderIdFk"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>
