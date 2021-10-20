@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="DssReqResigTermHeader"
-  Version="12.2.1.0.31"
+  Version="12.2.1.11.57"
   InheritPersonalization="merge"
   DBObjectType="table"
   DBObjectName="DSS_REQ_RESIG_TERM_HEADER"
@@ -361,6 +361,13 @@
   <Attribute
     Name="PlanTransferHdrIdFk"
     ColumnName="PLAN_TRANSFER_HDR_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_REQ_RESIG_TERM_HEADER"/>
+  <Attribute
+    Name="GisLocationIdFk"
+    ColumnName="GIS_LOCATION_ID_FK"
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"

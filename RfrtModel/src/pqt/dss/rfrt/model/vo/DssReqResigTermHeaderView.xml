@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="DssReqResigTermHeaderView"
-  Version="12.2.1.3.15"
+  Version="12.2.1.11.57"
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
@@ -79,6 +79,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccLocationLov"
+    ViewObjectName="pqt.dss.rfrt.model.lov.LocationLov"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_RequestType"
     ListVOName="ResigTerminationPopList2"
@@ -218,93 +222,113 @@
     <DisplayCriteria
       Name="AgentDetailLovVoCriteria"/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT DSSREQRESIGTERMHEADER.ACTIVE_CONSULTANTS,                             
-       DSSREQRESIGTERMHEADER.AGENT_NO_FK,                             
-       DSSREQRESIGTERMHEADER.BRANCH_CODE_FK,                             
-       DSSREQRESIGTERMHEADER.BRANCH_NOTIF_ID_FK,                             
-       DSSREQRESIGTERMHEADER.BRANCH_STATUS,                             
-       DSSREQRESIGTERMHEADER.CURRENT_QTR,                             
-       DSSREQRESIGTERMHEADER.DSS_NOTIF_ID_FK,                             
-       DSSREQRESIGTERMHEADER.DSS_STATUS,                             
-       DSSREQRESIGTERMHEADER.ENTER_DATE,                             
-       DSSREQRESIGTERMHEADER.JOINING_DATE,                             
-       DSSREQRESIGTERMHEADER.LAST_RANK_DATE,                             
-       DSSREQRESIGTERMHEADER.LAST_UPDATED_BY,                             
-       DSSREQRESIGTERMHEADER.LAST_UPDATED_DATE,                             
-       DSSREQRESIGTERMHEADER.MANAGER_ID_FK,                             
-       DSSREQRESIGTERMHEADER.MONTH_SALARY_DRAWN,                             
-       DSSREQRESIGTERMHEADER.PERSON_TYPE,                             
-       DSSREQRESIGTERMHEADER.RANK_CODE_FK,                             
-       DSSREQRESIGTERMHEADER.REGION_CODE_FK,                             
-       DSSREQRESIGTERMHEADER.REMARKS,                             
-       DSSREQRESIGTERMHEADER.REQUEST_REASON,                             
-       DSSREQRESIGTERMHEADER.REQUEST_TYPE,                             
-       DSSREQRESIGTERMHEADER.RESIGNATION_FILE,                             
-       DSSREQRESIGTERMHEADER.RESIGNATION_LETTER,                             
-       DSSREQRESIGTERMHEADER.RFRT_HEADER_ID_PK,                             
-       DSSREQRESIGTERMHEADER.USER_ID_FK,                             
-       DSSREQRESIGTERMHEADER.YEAR_TO_DATE,                
-       DSSREQRESIGTERMHEADER.RFRT_DOC_NO,               
-       DSSREQRESIGTERMHEADER.AGENT_STIPEND,      
-       DSSREQRESIGTERMHEADER.WORKFLOW_NOTIFICATION_ID,      
-       DSSREQRESIGTERMHEADER.WORKFLOW_STATUS,    
-       (SELECT P.PTRF_DOC_NO      
-          FROM DSS_PLAN_TRANSFER_HEADER P      
-         WHERE P.TR_HEADER_ID_PK =      
-               DSSREQRESIGTERMHEADER.PLAN_TRANSFER_HDR_ID_FK) Plan_Transfer_Doc_No,   
-             (SELECT AG.AGENT_NAME                                            
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) AGENT_NAME,                                            
-       (SELECT AG.AGENT_CODE                                            
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) AGENT_CODE,              
-         (SELECT AG.N_CQ_BUS_POL                               
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) QUARTER_BUSS_POL,          
-         (SELECT AG.N_CQ_BUS                               
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) QUARTER_BUSS,          
-         (SELECT AG.N_HY_BUS_POL                               
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) HALFYEAR_BUSS_POL,          
-          (SELECT AG.N_HY_BUS                               
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) HALFYEAR_BUSS,          
-         (SELECT AG.N_YR_BUS_POL                               
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) YEARLY_BUSS_POL,          
-         (SELECT AG.N_YR_BUS                               
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) YEARLY_BUSS,          
-       (SELECT AG.AGENT_RANK                                            
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) DESIGNATION,                                            
-       (SELECT AG.MGR_AGENT_NAME                                            
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) REPORTING_MANAGER_NAME,                                            
-       (SELECT TBR.V_BRANCH_NAME                               
-          FROM VU_DSS_ST_BRANCH TBR                               
-         WHERE TBR.V_BRANCH_CODE = DSSREQRESIGTERMHEADER.BRANCH_CODE_FK) BRANCH_NAME,                                            
-       (SELECT AG.REGION                                            
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) REGION,                                            
-       (SELECT AG.DATE_OF_JOINING                                            
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) DATE_OF_JOING,                                            
-       (SELECT AG.LAST_RANK_DATE                                            
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) RANK_DATE,                    
-       (SELECT AG.PORTFOLIO                                            
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) PORTFOLIO,                  
-         DSSREQRESIGTERMHEADER.FILE_CONTENT_TYPE,        
-          (SELECT AG.ACTIVE_CONSULTANT                                            
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) ACTIVE_CONSULTANT,        
-          (SELECT AG.ACTIVE_MANAGERS                                            
-          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                            
-         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) ACTIVE_MANAGER,     
-         DSSREQRESIGTERMHEADER.PLAN_TRANSFER_HDR_ID_FK    
+  <ListBinding
+    Name="LOV_GisLocationIdFk"
+    ListVOName="AccLocationLov"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GisLocationIdFk"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IlLocIdPk"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Location"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT DSSREQRESIGTERMHEADER.ACTIVE_CONSULTANTS,                               
+       DSSREQRESIGTERMHEADER.AGENT_NO_FK,                               
+       DSSREQRESIGTERMHEADER.BRANCH_CODE_FK,                               
+       DSSREQRESIGTERMHEADER.BRANCH_NOTIF_ID_FK,                               
+       DSSREQRESIGTERMHEADER.BRANCH_STATUS,                               
+       DSSREQRESIGTERMHEADER.CURRENT_QTR,                               
+       DSSREQRESIGTERMHEADER.DSS_NOTIF_ID_FK,                               
+       DSSREQRESIGTERMHEADER.DSS_STATUS,                               
+       DSSREQRESIGTERMHEADER.ENTER_DATE,                               
+       DSSREQRESIGTERMHEADER.JOINING_DATE,                               
+       DSSREQRESIGTERMHEADER.LAST_RANK_DATE,                               
+       DSSREQRESIGTERMHEADER.LAST_UPDATED_BY,                               
+       DSSREQRESIGTERMHEADER.LAST_UPDATED_DATE,                               
+       DSSREQRESIGTERMHEADER.MANAGER_ID_FK,                               
+       DSSREQRESIGTERMHEADER.MONTH_SALARY_DRAWN,                               
+       DSSREQRESIGTERMHEADER.PERSON_TYPE,                               
+       DSSREQRESIGTERMHEADER.RANK_CODE_FK,                               
+       DSSREQRESIGTERMHEADER.REGION_CODE_FK,                               
+       DSSREQRESIGTERMHEADER.REMARKS,                               
+       DSSREQRESIGTERMHEADER.REQUEST_REASON,                               
+       DSSREQRESIGTERMHEADER.REQUEST_TYPE,                               
+       DSSREQRESIGTERMHEADER.RESIGNATION_FILE,                               
+       DSSREQRESIGTERMHEADER.RESIGNATION_LETTER,                               
+       DSSREQRESIGTERMHEADER.RFRT_HEADER_ID_PK,                               
+       DSSREQRESIGTERMHEADER.USER_ID_FK,                               
+       DSSREQRESIGTERMHEADER.YEAR_TO_DATE,                  
+       DSSREQRESIGTERMHEADER.RFRT_DOC_NO,                 
+       DSSREQRESIGTERMHEADER.AGENT_STIPEND,        
+       DSSREQRESIGTERMHEADER.WORKFLOW_NOTIFICATION_ID,        
+       DSSREQRESIGTERMHEADER.WORKFLOW_STATUS,   
+       DSSREQRESIGTERMHEADER.GIS_LOCATION_ID_FK,  
+       (SELECT P.PTRF_DOC_NO        
+          FROM DSS_PLAN_TRANSFER_HEADER P        
+         WHERE P.TR_HEADER_ID_PK =        
+               DSSREQRESIGTERMHEADER.PLAN_TRANSFER_HDR_ID_FK) Plan_Transfer_Doc_No,     
+             (SELECT AG.AGENT_NAME                                              
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                              
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) AGENT_NAME,                                              
+       (SELECT AG.AGENT_CODE                                              
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                              
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) AGENT_CODE,                
+         (SELECT AG.N_CQ_BUS_POL                                 
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                  
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) QUARTER_BUSS_POL,            
+         (SELECT AG.N_CQ_BUS                                 
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                  
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) QUARTER_BUSS,            
+         (SELECT AG.N_HY_BUS_POL                                 
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                  
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) HALFYEAR_BUSS_POL,            
+          (SELECT AG.N_HY_BUS                                 
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                  
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) HALFYEAR_BUSS,            
+         (SELECT AG.N_YR_BUS_POL                                 
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                  
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) YEARLY_BUSS_POL,            
+         (SELECT AG.N_YR_BUS                                 
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                  
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) YEARLY_BUSS,            
+       (SELECT AG.AGENT_RANK                                              
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                              
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) DESIGNATION,                                              
+       (SELECT AG.MGR_AGENT_NAME                                              
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                              
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) REPORTING_MANAGER_NAME,                                              
+       (SELECT TBR.V_BRANCH_NAME                                 
+          FROM VU_DSS_ST_BRANCH TBR                                 
+         WHERE TBR.V_BRANCH_CODE = DSSREQRESIGTERMHEADER.BRANCH_CODE_FK) BRANCH_NAME,                                              
+       (SELECT AG.REGION                                              
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                              
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) REGION,                                              
+       (SELECT AG.DATE_OF_JOINING                                              
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                              
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) DATE_OF_JOING,                                              
+       (SELECT AG.LAST_RANK_DATE                                              
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                              
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) RANK_DATE,                      
+       (SELECT AG.PORTFOLIO                                              
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                              
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) PORTFOLIO,                    
+         DSSREQRESIGTERMHEADER.FILE_CONTENT_TYPE,          
+          (SELECT AG.ACTIVE_CONSULTANT                                              
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                              
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) ACTIVE_CONSULTANT,          
+          (SELECT AG.ACTIVE_MANAGERS                                              
+          FROM VU_DSS_RFRT_AGENT_DETAIL AG                                              
+         WHERE AG.N_AGENT_NO = DSSREQRESIGTERMHEADER.AGENT_NO_FK) ACTIVE_MANAGER,       
+         DSSREQRESIGTERMHEADER.PLAN_TRANSFER_HDR_ID_FK      
 FROM  DSS_REQ_RESIG_TERM_HEADER DSSREQRESIGTERMHEADER]]></SQLQuery>
   <EntityUsage
     Name="DssReqResigTermHeader"
@@ -659,6 +683,24 @@ FROM  DSS_REQ_RESIG_TERM_HEADER DSSREQRESIGTERMHEADER]]></SQLQuery>
       <SchemaBasedProperties>
         <LABEL
           ResId="pqt.dss.rfrt.model.vo.DssReqResigTermHeaderView.WorkflowStatus_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GisLocationIdFk"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="GIS_LOCATION_ID_FK"
+    Expression="GIS_LOCATION_ID_FK"
+    SQLType="NUMERIC"
+    LOVName="LOV_GisLocationIdFk">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

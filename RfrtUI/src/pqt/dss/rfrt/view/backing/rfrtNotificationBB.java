@@ -25,8 +25,11 @@ import oracle.adf.view.rich.component.rich.nav.RichButton;
 import oracle.adf.view.rich.component.rich.output.RichOutputText;
 
 import oracle.jbo.domain.BlobDomain;
+import org.apache.myfaces.trinidad.component.UIXGroup;
+import org.apache.myfaces.trinidad.model.UploadedFile;
 
-import org.apache.commons.io.IOUtils;
+//import sun.misc.IOUtils;
+//import org.apache.commons.io.IOUtils;
 
 public class rfrtNotificationBB {
     private RichButton b1;
@@ -230,7 +233,7 @@ public class rfrtNotificationBB {
         BlobDomain blob =
             (BlobDomain)iteratorbinding.getCurrentRow().getAttribute("ResignationFile");
         try {
-            IOUtils.copy(blob.getInputStream(), outputStream);
+//            IOUtils.copy(blob.getInputStream(), outputStream);
             blob.closeInputStream();
             outputStream.flush();
         } catch (IOException e) {

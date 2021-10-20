@@ -316,6 +316,21 @@
             </af:popup>
           </af:panelHeader>
         </af:panelGroupLayout>
+        <f:facet name="context">
+          <af:panelGroupLayout id="pgl3" binding="#{backingBeanScope.rfrtCreateUpdateBB.pgl3}" layout="horizontal">
+            <af:outputText value="(" id="ot4" binding="#{backingBeanScope.rfrtCreateUpdateBB.ot4}"/>
+            <af:selectOneChoice value="#{bindings.GisLocationIdFk.inputValue}" label="#{bindings.GisLocationIdFk.label}"
+                                required="#{bindings.GisLocationIdFk.hints.mandatory}"
+                                shortDesc="#{bindings.GisLocationIdFk.hints.tooltip}" id="soc1"
+                                binding="#{backingBeanScope.rfrtCreateUpdateBB.soc1}" simple="true"
+                                contentStyle="font-weight:bold" readOnly="true">
+              <f:selectItems value="#{bindings.GisLocationIdFk.items}" id="si1"
+                             binding="#{backingBeanScope.rfrtCreateUpdateBB.si1}"/>
+              <f:validator binding="#{bindings.GisLocationIdFk.validator}"/>
+            </af:selectOneChoice>
+            <af:outputText value=")" id="ot5" binding="#{backingBeanScope.rfrtCreateUpdateBB.ot5}"/>
+          </af:panelGroupLayout>
+        </f:facet>
       </af:panelHeader>
     </f:facet>
   </af:panelStretchLayout>

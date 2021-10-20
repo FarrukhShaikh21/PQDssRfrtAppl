@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UISelectItems;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
@@ -24,6 +25,7 @@ import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputFile;
 import oracle.adf.view.rich.component.rich.input.RichInputListOfValues;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
+import oracle.adf.view.rich.component.rich.input.RichSelectOneChoice;
 import oracle.adf.view.rich.component.rich.layout.RichPanelFormLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelGroupLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelHeader;
@@ -100,6 +102,11 @@ public class rfrtCreateUpdateBB {
     private RichInputListOfValues planTransferDocNoId;
     private RichPanelLabelAndMessage plam3;
     private RichOutputText ot3;
+    private RichSelectOneChoice soc1;
+    private UISelectItems si1;
+    private RichPanelGroupLayout pgl3;
+    private RichOutputText ot4;
+    private RichOutputText ot5;
 
     public rfrtCreateUpdateBB() {
     }
@@ -655,5 +662,45 @@ public class rfrtCreateUpdateBB {
 
     public RichOutputText getOt3() {
         return ot3;
+    }
+
+    public void setSoc1(RichSelectOneChoice soc1) {
+        this.soc1 = soc1;
+    }
+
+    public RichSelectOneChoice getSoc1() {
+        return soc1;
+    }
+
+    public void setSi1(UISelectItems si1) {
+        this.si1 = si1;
+    }
+
+    public UISelectItems getSi1() {
+        return si1;
+    }
+
+    public void setPgl3(RichPanelGroupLayout pgl3) {
+        this.pgl3 = pgl3;
+    }
+
+    public RichPanelGroupLayout getPgl3() {
+        return pgl3;
+    }
+
+    public void setOt4(RichOutputText ot4) {
+        this.ot4 = ot4;
+    }
+
+    public RichOutputText getOt4() {
+        return ot4;
+    }
+
+    public void setOt5(RichOutputText ot5) {
+        this.ot5 = ot5;
+    }
+
+    public RichOutputText getOt5() {
+        return ot5;
     }
 }

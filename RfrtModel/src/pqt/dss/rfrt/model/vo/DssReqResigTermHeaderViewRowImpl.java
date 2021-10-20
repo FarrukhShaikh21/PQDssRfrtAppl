@@ -58,6 +58,7 @@ public class DssReqResigTermHeaderViewRowImpl extends ViewRowImpl {
         AgentStipend,
         WorkflowNotificationId,
         WorkflowStatus,
+        GisLocationIdFk,
         PlanTransferDocNo,
         AgentName,
         AgentCode,
@@ -83,7 +84,8 @@ public class DssReqResigTermHeaderViewRowImpl extends ViewRowImpl {
         AgentManagPopList1,
         StipendPopList1,
         UserBranchDtlLovVo1,
-        AgentDetailLovVo1;
+        AgentDetailLovVo1,
+        AccLocationLov;
         static AttributesEnum[] vals = null;
         ;
         private static final int firstIndex = 0;
@@ -139,6 +141,7 @@ public class DssReqResigTermHeaderViewRowImpl extends ViewRowImpl {
     public static final int AGENTSTIPEND = AttributesEnum.AgentStipend.index();
     public static final int WORKFLOWNOTIFICATIONID = AttributesEnum.WorkflowNotificationId.index();
     public static final int WORKFLOWSTATUS = AttributesEnum.WorkflowStatus.index();
+    public static final int GISLOCATIONIDFK = AttributesEnum.GisLocationIdFk.index();
     public static final int PLANTRANSFERDOCNO = AttributesEnum.PlanTransferDocNo.index();
     public static final int AGENTNAME = AttributesEnum.AgentName.index();
     public static final int AGENTCODE = AttributesEnum.AgentCode.index();
@@ -165,6 +168,7 @@ public class DssReqResigTermHeaderViewRowImpl extends ViewRowImpl {
     public static final int STIPENDPOPLIST1 = AttributesEnum.StipendPopList1.index();
     public static final int USERBRANCHDTLLOVVO1 = AttributesEnum.UserBranchDtlLovVo1.index();
     public static final int AGENTDETAILLOVVO1 = AttributesEnum.AgentDetailLovVo1.index();
+    public static final int ACCLOCATIONLOV = AttributesEnum.AccLocationLov.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -697,6 +701,14 @@ public class DssReqResigTermHeaderViewRowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for the calculated attribute GisLocationIdFk.
+     * @return the GisLocationIdFk
+     */
+    public BigDecimal getGisLocationIdFk() {
+        return (BigDecimal) getAttributeInternal(GISLOCATIONIDFK);
+    }
+
+    /**
      * Gets the attribute value for the calculated attribute PlanTransferDocNo.
      * @return the PlanTransferDocNo
      */
@@ -1027,6 +1039,13 @@ public class DssReqResigTermHeaderViewRowImpl extends ViewRowImpl {
      */
     public RowSet getAgentDetailLovVo1() {
         return (RowSet) getAttributeInternal(AGENTDETAILLOVVO1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> AccLocationLov.
+     */
+    public RowSet getAccLocationLov() {
+        return (RowSet) getAttributeInternal(ACCLOCATIONLOV);
     }
 }
 
