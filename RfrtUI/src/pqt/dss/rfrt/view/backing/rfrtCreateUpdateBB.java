@@ -703,4 +703,6 @@ public class rfrtCreateUpdateBB {
     public RichOutputText getOt5() {
         return ot5;
     }
+
+
 }

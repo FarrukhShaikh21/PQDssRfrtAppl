@@ -11,6 +11,8 @@ import oracle.adf.model.binding.DCIteratorBinding;
 
 import oracle.jbo.domain.BlobDomain;
 
+import org.apache.commons.io.IOUtils;
+
 //import org.apache.commons.io.IOUtils;
 
 public class fileDownloadClass {
@@ -23,7 +25,7 @@ public class fileDownloadClass {
         BlobDomain blob =
             (BlobDomain)iteratorbinding.getCurrentRow().getAttribute("ResignationFile");
         try {
-//            IOUtils.copy(blob.getInputStream(), outputStream);
+            IOUtils.copy(blob.getInputStream(), outputStream);
             blob.closeInputStream();
             outputStream.flush();
         } catch (IOException e) {

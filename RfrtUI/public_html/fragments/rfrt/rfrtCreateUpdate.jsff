@@ -297,10 +297,10 @@
                                   binding="#{backingBeanScope.rfrtCreateUpdateBB.it12}" disabled="true">
                       <f:validator binding="#{bindings.ResignationLetter.validator}"/>
                     </af:inputText>
-                    <af:inputFile label="Select File" id="if2" value="#{backingBeanScope.rfrtCreateUpdateBB.file}"
+                    <af:inputFile label="Select File" id="if2"
                                   binding="#{backingBeanScope.rfrtCreateUpdateBB.if2}"
                                   valueChangeListener="#{backingBeanScope.rfrtCreateUpdateBB.uploadFileVCE}"
-                                  autoSubmit="true"/>
+                                  autoSubmit="true" partialTriggers="if2"/>
                     <af:button text="Upload" id="b3" inlineStyle="width:90%;"
                                binding="#{backingBeanScope.rfrtCreateUpdateBB.b3}"
                                action="#{backingBeanScope.rfrtCreateUpdateBB.uploadAttach}" rendered="false"/>
